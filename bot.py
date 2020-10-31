@@ -69,10 +69,36 @@ def roll_dice(*args):
         return "Can't roll dice: " + str(e)
 
 
+def get_ror2_equip(*args):
+    """
+    Roll a random ror2 equipment.
+    """
+    if args:
+        random.seed(str(args))
+
+    return random.choice([
+        "Disposable Missile Launcher",
+        "Foreign Fruit",
+        "Primordial Cube",
+        "Ocular HUD",
+        "The Back-Up",
+        "Preon Accumulator",
+        "Milky Chrysalis",
+        "Royal Capacitor",
+        "The Crowdfunder",
+        "Gnarled Woodsprite",
+        "Radar Scanner",
+        "Eccentric Vase",
+        "Volcanic Egg",
+        "Jade Elephant",
+    ])
+
+
 COMMANDS = {
     "$cowgames": get_cow_games,
     "$advice": get_advice,
     "$dice": roll_dice,
+    "$ror2equip": get_ror2_equip,
 }
 
 def help():
