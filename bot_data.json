@@ -1,0 +1,162 @@
+{
+	"characters": [
+		"Commando",
+		"Huntress",
+		"MUL-T",
+		"Engineer",
+		"Artificer",
+		"Mercenary",
+		"REX",
+		"Loader",
+		"Acrid",
+		"Captain"
+	], // [ "Commando", "Huntress", "MUL-T", "Engineer", "Artificer", "Mercenary", "REX", "Acrid", "Loader", "Captain" ]
+
+	"builds": {
+		"forgive": {
+			"name": "Forgive Me Please + Soulbound",
+			"weight": 1,
+			"character": null
+		},
+		"bleed": {
+			"name": "Bleed",
+			"weight": 1,
+			"character": [ "Commando", "Huntress", "MUL-T", "Engineer", "REX", "Captain" ]
+		},
+		"proc-chain": {
+			"name": "Proc-chain",
+			"weight": 1,
+			"character": [ "Commando", "Huntress", "MUL-T", "Engineer", "Loader", "Captain" ]
+		},
+		"missile": {
+			"name": "Disposable Missile Launcher",
+			"weight": 1,
+			"character": null
+		},
+		"capacitor": {
+			"name": "Capacitor + Soulbound",
+			"weight": 1,
+			"character": null
+		},
+		"opinion": {
+			"name": "N'kuhana's Opinion + Foreign Fruit",
+			"weight": 1,
+			"character": null
+		},
+		"opinion2": {
+			"name": "N'Kuhana's Opinion + Strides of Heresy",
+			"weight": 1,
+			"character": null
+		},
+		"elephant": {
+			"name": "Jade Elephant",
+			"weight": 1,
+			"character": null
+		},
+		"crowdfunder": {
+			"name": "The Crowdfunder + Brittle Crown",
+			"weight": 1,
+			"character": null
+		},
+		"spinel": {
+			"name": "Spinel Tonic",
+			"weight": 1,
+			"character": [ "Commando", "Huntress", "Artificer", "Mercenary", "REX", "Acrid", "Loader", "Captain" ]
+		},
+		"razorwire": {
+			"name": "Razorwire + Hellfire Tincture",
+			"weight": 1,
+			"character": [ "MUL-T", "Artificer", "Mercenary", "Loader", "Acrid" ]
+		},
+		"meteorite": {
+			"name": "Glowing Meteorite",
+			"weight": 1,
+			"character": null
+		},
+		"commandopurity": {
+			"name": "Purity (phase blast)",
+			"weight": 1,
+			"character": [ "Commando" ]
+		},
+		"huntress": {
+			"name": "(standard build)",
+			"weight": 1,
+			"character": [ "Huntress" ]
+		},
+		"rebar": {
+			"name": "Rebar + Blast Shower",
+			"weight": 1,
+			"character": [ "MUL-T" ]
+		},
+		"fungus": {
+			"name": "Bustling Fungus + N'kuhana's Opinion",
+			"weight": 1,
+			"character": [ "Engineer" ]
+		},
+		"mobile": {
+			"name": "Moving turrets",
+			"weight": 1,
+			"character": [ "Engineer" ]
+		},
+		"artificerpurity": {
+			"name": "Purity + Supermassive Leech",
+			"weight": 1,
+			"character": [ "Artificer" ]
+		},
+		"mercenary": {
+			"name": "(standard build)",
+			"weight": 1,
+			"character": [ "Mercenary" ]
+		},
+		"mercenarypurity1": {
+			"name": "Purity (eviscerate)",
+			"weight": 1,
+			"character": [ "Mercenary" ]
+		},
+		"mercenarypurity2": {
+			"name": "Purity (slicing winds)",
+			"weight": 1,
+			"character": [ "Mercenary" ]
+		},
+		"rex": {
+			"name": "(standard build)",
+			"weight": 1,
+			"character": [ "REX" ]
+		},
+		"seedbomb": {
+			"name": "Seed Bomb + Supermassive Leech",
+			"weight": 1,
+			"character": [ "REX" ]
+		},
+		"loader": {
+			"name": "(standard build)",
+			"weight": 1,
+			"character": [ "Loader" ]
+		},
+		"onepunch": {
+			"name": "Thunder Gauntlet + Bands/Blast Shower",
+			"weight": 1,
+			"character": [ "Loader" ]
+		},
+		"acridranged": {
+			"name": "Neurotoxin + Visions of Heresy + Purity",
+			"weight": 1,
+			"character": [ "Acrid" ]
+		},
+		"acridmelee": {
+			"name": "Ravernous Bite + Purity",
+			"weight": 1,
+			"character": [ "Acrid" ]
+		},
+		"captain": {
+			"name": "(standard build)",
+			"weight": 1,
+			"character": [ "Captain" ]
+		},
+		"backup": {
+			"name": "The Back-up",
+			"weight": 1,
+			"character": [ "Captain" ]
+		}
+	}
+}
