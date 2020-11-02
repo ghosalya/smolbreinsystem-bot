@@ -1,4 +1,4 @@
-from bot import roll_dice
+from command_fn.generic import roll_dice
 
 
 def test_roll_dice_default():

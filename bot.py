@@ -7,121 +7,17 @@ import random
 import inspect
 from dotenv import load_dotenv
 
-import json
+from command_fn.generic import roll_dice
+from command_fn.cows import get_advice, get_cow_games
+from command_fn.ror2 import (
+    get_ror2_build,
+    get_ror2_char,
+    get_ror2_equip,
+)
+
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
-
-client = discord.Client()
-
-@client.event
-async def on_ready():
-    print(f'{client.user} has connected to Discord!')
-
-def get_cow_games(*args):
-    """
-    Suggests a game to play.
-    """
-    if args:
-        random.seed(str(args))
-
-    return random.choice([
-        "Let's play: Borderlands 3",
-        "Let's play: Stardew Valley",
-        "Let's play: Risk of Rain 2",
-        "Let's play: Destiny 2",
-        "Let's play: Jackbox",
-        "Let's play: Scribbl.io",
-        "Let's play: Towerfall",
-        "Let's play: Alien Swarm",
-        "Let's play: HTHT",
-    ])
-
-def get_advice(*args):
-    """
-    Get advice on your problem.
-    """
-    if args:
-        random.seed(str(args))
-
-    return random.choice([
-        "The system recommends: git gud",
-        "The system recommends: reach superior positioning",
-        "The system recommends: follow the supreme leader",
-        "The system recommends: blame fireteam leader",
-        "The system recommends: chill, there's nothing to lose",
-    ])
-
-def roll_dice(*args):
-    """
-    Roll a dice. `$dice` rolls a d6, `$dice X` rolls a dX, and `$dice X Y` rolls between X and Y.
-    """
-    try:
-        if len(args) == 0:
-            # roll d6
-            return random.randint(1, 6)
-
-        if len(args) == 1:
-            # roll d*
-            return random.randint(1, int(args[0]))
-
-        else:
-            return random.randint(int(args[0]), int(args[1]))
-    except Exception as e:
-        return "Can't roll dice: " + str(e)
-
-
-def get_ror2_equip(*args):
-    """
-    Roll a random ror2 equipment.
-    """
-    if args:
-        random.seed(str(args))
-
-    return random.choice([
-        "Disposable Missile Launcher",
-        "Foreign Fruit",
-        "Primordial Cube",
-        "Ocular HUD",
-        "The Back-Up",
-        "Preon Accumulator",
-        "Milky Chrysalis",
-        "Royal Capacitor",
-        "The Crowdfunder",
-        "Gnarled Woodsprite",
-        "Radar Scanner",
-        "Eccentric Vase",
-        "Volcanic Egg",
-        "Jade Elephant",
-    ])
-
-def get_ror2_char(*args):
-    """
-    Roll a random ror2 character.
-    """
-    if args:
-        random.seed(str(args))
-    return random.choice(ror2_characters)
-
-def get_ror2_build(*args):
-    """
-    Roll a random ror2 build.
-    """
-    c = False
-    if args:
-        for s in ror2_characters:
-            if s.lower() == args[0].lower():
-                c = s
-                break
-    if c:
-        b = random.choice([k for k,v in ror2_builds.items() if not v["character"] or c in v["character"]])
-    else:
-        b = random.choice(list(ror2_builds.keys()))
-        if ror2_builds[b][character]:
-            c = random.choice(ror2_builds[b][character])
-        else:
-            c = random.choice(ror2_characters)
-    return "Character: " + c + "\nBuild: " + b
 
 COMMANDS = {
     "$cowgames": get_cow_games,
@@ -131,6 +27,12 @@ COMMANDS = {
     "$ror2char": get_ror2_char,
     "$ror2build": get_ror2_build,
 }
+
+client = discord.Client()
+
+@client.event
+async def on_ready():
+    print(f'{client.user} has connected to Discord!')
 
 def help():
     return "\n".join([
@@ -152,8 +54,6 @@ async def on_message(message):
         response = COMMANDS[message_command](*args)
         await message.channel.send(response)
 
-with open("bot_data.json") as f:
-    data = json.load(f)
-    ror2_characters = data["characters"]
-    ror2_builds = data["builds"]
+
+if __name__ == "__main__":
     client.run(TOKEN)
