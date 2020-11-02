@@ -7,6 +7,8 @@ import random
 import inspect
 from dotenv import load_dotenv
 
+import json
+
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
@@ -93,12 +95,35 @@ def get_ror2_equip(*args):
         "Jade Elephant",
     ])
 
+def get_ror2_char(*args):
+    if args:
+        random.seed(str(args))
+    return random.choice(ror2_characters)
+
+def get_ror2_build(*args):
+    c = False
+    if args:
+        for s in ror2_characters:
+            if s.lower() == args[0].lower():
+                c = s
+                break
+    if c:
+        b = random.choice([k for k,v in ror2_builds.items() if !v["character"] or c in v["character"]])
+    else:
+        b = random.choice(list(ror2_builds.keys()))
+        if ror2_builds[b][character]:
+            c = random.choice(ror2_builds[b][character])
+        else:
+            c = random.choice(ror2_characters)
+    return "Character: " + c + "\nBuild: " + b
 
 COMMANDS = {
     "$cowgames": get_cow_games,
     "$advice": get_advice,
     "$dice": roll_dice,
     "$ror2equip": get_ror2_equip,
+    "$ror2char": get_ror2_equip,
+    "$ror2build": get_ror2_equip,
 }
 
 def help():
@@ -121,4 +146,8 @@ async def on_message(message):
         response = COMMANDS[message_command](*args)
         await message.channel.send(response)
 
-client.run(TOKEN)
+with open("bot_data.json") as f:
+    data = json.load(f)
+    ror2_characters = data["characters"]
+    ror2_builds = data["builds"]
+    client.run(TOKEN)
