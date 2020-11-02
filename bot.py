@@ -96,11 +96,17 @@ def get_ror2_equip(*args):
     ])
 
 def get_ror2_char(*args):
+    """
+    Roll a random ror2 character.
+    """
     if args:
         random.seed(str(args))
     return random.choice(ror2_characters)
 
 def get_ror2_build(*args):
+    """
+    Roll a random ror2 build.
+    """
     c = False
     if args:
         for s in ror2_characters:
@@ -122,8 +128,8 @@ COMMANDS = {
     "$advice": get_advice,
     "$dice": roll_dice,
     "$ror2equip": get_ror2_equip,
-    "$ror2char": get_ror2_equip,
-    "$ror2build": get_ror2_equip,
+    "$ror2char": get_ror2_char,
+    "$ror2build": get_ror2_build,
 }
 
 def help():
