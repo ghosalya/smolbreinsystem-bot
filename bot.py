@@ -108,7 +108,7 @@ def get_ror2_build(*args):
                 c = s
                 break
     if c:
-        b = random.choice([k for k,v in ror2_builds.items() if !v["character"] or c in v["character"]])
+        b = random.choice([k for k,v in ror2_builds.items() if not v["character"] or c in v["character"]])
     else:
         b = random.choice(list(ror2_builds.keys()))
         if ror2_builds[b][character]:

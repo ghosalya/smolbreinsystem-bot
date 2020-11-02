@@ -10,7 +10,7 @@
 		"Loader",
 		"Acrid",
 		"Captain"
-	], // [ "Commando", "Huntress", "MUL-T", "Engineer", "Artificer", "Mercenary", "REX", "Acrid", "Loader", "Captain" ]
+	],
 
 	"builds": {
 		"forgive": {
