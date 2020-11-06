@@ -11,22 +11,28 @@
 		"Acrid",
 		"Captain"
 	],
-	"equipments": [
-        "Disposable Missile Launcher",
-        "Foreign Fruit",
-        "Primordial Cube",
-        "Ocular HUD",
-        "The Back-Up",
-        "Preon Accumulator",
-        "Milky Chrysalis",
-        "Royal Capacitor",
-        "The Crowdfunder",
-        "Gnarled Woodsprite",
-        "Radar Scanner",
-        "Eccentric Vase",
-        "Volcanic Egg",
-        "Jade Elephant"
-    ],
+	"equipments": {
+		"Blast Shower": [7, 10, 15]
+		"Disposable Missile Launcher": 17,
+		"Eccentric Vase": 0,
+		"Foreign Fruit": 0,
+		"Forgive Me Please": 0,
+		"Gnarled Woodsprite": 0,
+		"Gorag's Opus": 8,
+		"Jade Elephant": 10,
+		"Milky Chrysalis": 5,
+		"Ocular HUD": 9,
+		"Preon Accumulator": 0,
+		"Primordial Cube": 7,
+		"Radar Scanner": 5,
+		"Recycler": 0,
+		"Royal Capacitor": [5, 8],
+		"Sawmerang": 0,
+		"Super Massive Leech": 9,
+		"The Back-Up": [5, 9, 11],
+		"The Crowdfunder": 0,
+		"Volcanic Egg": 0
+	},
 	"builds": {
 		"forgive": {
 			"name": "Forgive Me Please + Soulbound",
@@ -138,8 +144,8 @@
 			"weight": 1,
 			"character": [ "REX" ]
 		},
-		"seedbomb": {
-			"name": "Seed Bomb + Supermassive Leech",
+		"seedbarrage": {
+			"name": "Seed Barrage + Supermassive Leech",
 			"weight": 1,
 			"character": [ "REX" ]
 		},
@@ -159,7 +165,7 @@
 			"character": [ "Acrid" ]
 		},
 		"acridmelee": {
-			"name": "Ravernous Bite + Purity",
+			"name": "Ravenous Bite + Purity",
 			"weight": 1,
 			"character": [ "Acrid" ]
 		},
