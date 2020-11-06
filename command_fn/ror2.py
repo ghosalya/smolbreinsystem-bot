@@ -12,32 +12,41 @@ def _get_ror2_data():
         return json.load(datafile)
 
 
+def _get_acronym(string):
+    string_tokens = string.lower().split(" ")
+    return "".join([token[0] for token in string_tokens])
+
+
 def get_ror2_equip(*args):
     """
     Roll a random ror2 equipment. If an equipment name is provided, returns a recommended number of fuel cells.
     """
-    ror2_equipments = _get_ror2_data()["characters"]
+    ror2_equipments = _get_ror2_data()["equipments"]
     e = False
     if args:
         for s in ror2_equipments.keys():
             if s.lower() == args[0].lower():
                 e = s
                 break
+            # also check for acronyms
+            if _get_acronym(s) == args[0].lower():
+                e = s
+                break
+
+    else:
+        e = random.choice(list(ror2_equipments.keys()))
     
-    if e:
-        r = "Equipment: " + e
-        fc = ror2_equipments[e]
-        try:
-            iterator = iter(fc)
-            r = r + "\nFuel cell breakpoints: " + ', '.join([str(a) for a in fc])
+    r = "Equipment: " + e
+    fc = ror2_equipments[e]
+    try:
+        iterator = iter(fc)
+        r = r + "\nFuel cell breakpoints: " + ', '.join([str(a) for a in fc])
+        return r
+    except:
+        if fc > 0:
+            return r + "\nFuel cells for permanent uptime: " + str(fc)
+        else:
             return r
-        except:
-            if fc > 0:
-                return r + "\nFuel cells for permanent uptime: " + str(fc)
-            else:
-                return r
-    
-    return random.choice(_get_ror2_data()["equipments"])
 
 def get_ror2_char(*args):
     """

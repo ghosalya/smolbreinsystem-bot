@@ -21,4 +21,18 @@ def test_char():
 
 def test_equip():
     equip = get_ror2_equip()
-    assert equip is not None
+    assert "Equipment:" in equip
+
+    # with FC count
+    blast_shower = get_ror2_equip("Blast Shower")
+    assert blast_shower == (
+        "Equipment: Blast Shower\n"
+        "Fuel cell breakpoints: 7, 10, 15"
+    )
+
+    # with acronym
+    blast_shower = get_ror2_equip("sml")
+    assert blast_shower == (
+        "Equipment: Super Massive Leech\n"
+        "Fuel cells for permanent uptime: 9"
+    )
