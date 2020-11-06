@@ -24,7 +24,7 @@ def test_equip():
     assert "Equipment:" in equip
 
     # with FC count
-    blast_shower = get_ror2_equip("Blast Shower")
+    blast_shower = get_ror2_equip("Blast", "Shower")
     assert blast_shower == (
         "Equipment: Blast Shower\n"
         "Fuel cell breakpoints: 7, 10, 15"

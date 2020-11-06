@@ -25,7 +25,7 @@ def get_ror2_equip(*args):
     e = False
     if args:
         for s in ror2_equipments.keys():
-            if s.lower() == args[0].lower():
+            if s.lower() == " ".join(args).lower():
                 e = s
                 break
             # also check for acronyms
