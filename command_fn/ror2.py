@@ -14,11 +14,29 @@ def _get_ror2_data():
 
 def get_ror2_equip(*args):
     """
-    Roll a random ror2 equipment.
+    Roll a random ror2 equipment. If an equipment name is provided, returns a recommended number of fuel cells.
     """
+    ror2_equipments = _get_ror2_data()["characters"]
+    e = False
     if args:
-        random.seed(str(args))
-
+        for s in ror2_equipments.keys():
+            if s.lower() == args[0].lower():
+                e = s
+                break
+    
+    if e:
+        r = "Equipment: " + e
+        fc = ror2_equipments[e]
+        try:
+            iterator = iter(fc)
+            r = r + "\nFuel cell breakpoints: " + ', '.join([str(a) for a in fc])
+            return r
+        except:
+            if fc > 0:
+                return r + "\nFuel cells for permanent uptime: " + str(fc)
+            else:
+                return r
+    
     return random.choice(_get_ror2_data()["equipments"])
 
 def get_ror2_char(*args):
