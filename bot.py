@@ -14,6 +14,7 @@ from command_fn.ror2 import (
     get_ror2_char,
     get_ror2_equip,
 )
+from command_fn.genshin import ehe
 
 
 load_dotenv()
@@ -26,6 +27,7 @@ COMMANDS = {
     "$ror2equip": get_ror2_equip,
     "$ror2char": get_ror2_char,
     "$ror2build": get_ror2_build,
+    "ehe": ehe,
 }
 
 client = discord.Client()
@@ -48,7 +50,7 @@ async def on_message(message):
     if message.content == "$help":
         await message.channel.send(help())
 
-    message_command = message.content.split(" ")[0]
+    message_command = message.content.split(" ")[0].lower()
     if message_command in COMMANDS:
         args = message.content.split(" ")[1:]
         response = COMMANDS[message_command](*args)
