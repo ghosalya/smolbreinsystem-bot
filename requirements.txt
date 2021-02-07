@@ -1,2 +1,4 @@
-discord.py
+-e .
+
 python-dotenv
+# pynacl

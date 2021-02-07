@@ -1,0 +1,13 @@
+{
+  "version": "2.0",
+  "app_name": "smolbreinsystem",
+  "stages": {
+    "dev": {
+      "api_gateway_stage": "api",
+      "environment_variables": {
+        "DISCORD_PUBLIC_KEY": "9c475a5309f52491ab4e92d3398adbd9e8f7c23cd54c3e9e88ca19e295dc7a39"
+      },
+      "automatic_layer": true
+    }
+  }
+}

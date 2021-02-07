@@ -41,3 +41,9 @@ Since the process is running in the background, you want to find the PID
 ps -aux | grep bot.py  # will give you a list of process with PID which is the second value
 kill -9 <PID>
 ```
+
+## Bot on API Gateway
+
+Using AWS Chalice.
+
+`PYNACL` seems to need to be in lambda layer.

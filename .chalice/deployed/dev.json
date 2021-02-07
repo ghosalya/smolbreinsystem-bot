@@ -1,0 +1,28 @@
+{
+  "resources": [
+    {
+      "name": "managed-layer",
+      "resource_type": "lambda_layer",
+      "layer_version_arn": "arn:aws:lambda:ap-southeast-1:675195774401:layer:smolbreinsystem-dev-managed-layer:4"
+    },
+    {
+      "name": "default-role",
+      "resource_type": "iam_role",
+      "role_arn": "arn:aws:iam::675195774401:role/smolbreinsystem-dev",
+      "role_name": "smolbreinsystem-dev"
+    },
+    {
+      "name": "api_handler",
+      "resource_type": "lambda_function",
+      "lambda_arn": "arn:aws:lambda:ap-southeast-1:675195774401:function:smolbreinsystem-dev"
+    },
+    {
+      "name": "rest_api",
+      "resource_type": "rest_api",
+      "rest_api_id": "k0z5khw8zg",
+      "rest_api_url": "https://k0z5khw8zg.execute-api.ap-southeast-1.amazonaws.com/api/"
+    }
+  ],
+  "schema_version": "2.0",
+  "backend": "api"
+}
