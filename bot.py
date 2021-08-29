@@ -28,6 +28,7 @@ COMMANDS = {
     "$ror2char": get_ror2_char,
     "$ror2build": get_ror2_build,
     "ehe": ehe,
+    "-sd": get_single_draft,
 }
 
 client = discord.Client()
