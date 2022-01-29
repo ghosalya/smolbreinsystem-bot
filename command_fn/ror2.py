@@ -17,7 +17,7 @@ def _get_acronym(string):
     return "".join([token[0] for token in string_tokens])
 
 
-def get_ror2_equip(*args):
+def get_ror2_equip(*args, **kwargs):
     """
     Roll a random ror2 equipment. If an equipment name is provided, returns a recommended number of fuel cells.
     """
@@ -48,7 +48,7 @@ def get_ror2_equip(*args):
         else:
             return r
 
-def get_ror2_char(*args):
+def get_ror2_char(*args, **kwargs):
     """
     Roll a random ror2 character.
     """
@@ -57,7 +57,7 @@ def get_ror2_char(*args):
 
     return random.choice(_get_ror2_data()["characters"])
 
-def get_ror2_build(*args):
+def get_ror2_build(*args, **kwargs):
     """
     Roll a random ror2 build.
     """

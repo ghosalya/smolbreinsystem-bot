@@ -1,7 +1,7 @@
 import random
 
 
-def roll_dice(*args):
+def roll_dice(*args, **kwargs):
     """
     Roll a dice. `$dice` rolls a d6, `$dice X` rolls a dX, and `$dice X Y` rolls between X and Y.
     """

@@ -1,7 +1,7 @@
 import random
 
 
-def get_cow_games(*args):
+def get_cow_games(*args, **kwargs):
     """
     Suggests a game to play.
     """
@@ -20,7 +20,7 @@ def get_cow_games(*args):
         "Let's play: HTHT",
     ])
 
-def get_advice(*args):
+def get_advice(*args, **kwargs):
     """
     Get advice on your problem.
     """

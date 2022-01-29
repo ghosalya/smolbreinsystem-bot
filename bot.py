@@ -16,6 +16,9 @@ from command_fn.ror2 import (
 )
 from command_fn.genshin import ehe
 from command_fn.dota2 import get_single_draft
+from command_fn import pbem
+
+import aiocron
 
 
 load_dotenv()
@@ -30,6 +33,9 @@ COMMANDS = {
     "$ror2build": get_ror2_build,
     "ehe": ehe,
     "-sd": get_single_draft,
+    "$nextturn": pbem.next_turn,
+    "$nt": pbem.next_turn,
+    "$clearturn": pbem.clear_turn,
 }
 
 client = discord.Client()
@@ -55,8 +61,17 @@ async def on_message(message):
     message_command = message.content.split(" ")[0].lower()
     if message_command in COMMANDS:
         args = message.content.split(" ")[1:]
-        response = COMMANDS[message_command](*args)
+        response = COMMANDS[message_command](*args, channel=message.channel)
         await message.channel.send(response)
+
+
+@aiocron.crontab("0 20 * * *")
+async def pbem_reminder():
+    # send PBEM reminder every 20:00
+    try:
+        pbem.remind()
+    except:
+        pass
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-def ehe(*args):
+def ehe(*args, **kwargs):
     """
     Ehe te nandayo!?
     """

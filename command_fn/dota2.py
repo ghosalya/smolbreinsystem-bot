@@ -16,7 +16,7 @@ def _get_hero_group(herodata, hero_attr):
         i["localized_name"] for i in herodata.values() if i["primary_attr"] == hero_attr
     ]
 
-def get_single_draft(*args):
+def get_single_draft(*args, **kwargs):
     """
     returns the localized names of 3 heroes in the pool, one per primary attribute.
     """
