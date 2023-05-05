@@ -25,11 +25,13 @@ def get_single_draft(*args, **kwargs):
     str = random.choice(_get_hero_group(herodata, "str"))
     agi = random.choice(_get_hero_group(herodata, "agi"))
     int = random.choice(_get_hero_group(herodata, "int"))
+    all = random.choice(_get_hero_group(herodata, "all"))
 
     r = "```Single Draft: \n" \
         + "              " + str \
         + "\n              " + agi \
         + "\n              " + int \
+        + "\n              " + all \
         + "```"
 
     return r
